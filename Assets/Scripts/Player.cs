@@ -8,7 +8,13 @@ public class Player : MonoBehaviour
     public Transform cameraTransform;
     public GameManager gameManager;
 
+    public byte speed;
     void Update()
+    {
+        PlayerMovement();
+    }
+
+    void PlayerMovement()
     {
         float moveHorizontal = Input.GetAxis("Horizontal");
         float moveVertical = Input.GetAxis("Vertical");
@@ -19,7 +25,7 @@ public class Player : MonoBehaviour
         forward.Normalize();
         right.Normalize();
         Vector3 direction = forward * moveVertical + right * moveHorizontal;
-        rb.AddForce(direction * 5);
+        rb.AddForce(direction * speed);
     }
 
 }
