@@ -10,7 +10,9 @@ public class GameManager : MonoBehaviour
 
     private void Update()
     {
-       //is the game over?
+       if(gameOver == true){
+        GameOver();
+       }
     }
 
     void GameOver() {
